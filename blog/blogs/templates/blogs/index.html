@@ -1,0 +1,32 @@
+{% extends 'blogs/base.html' %}
+
+{% block header %}
+  <div class="jumbotron">
+    <h1>Welcome To My Blog.</h1>
+  </div>
+{% endblock header %}
+
+{% block content %}
+  
+  {% for note in notes %}
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+        <h3>
+          <a href="{% url 'blogs:show_note' note.id %}">{{ note.title }}</a>
+          ------{{ note.date_added|date:'M d,Y H:i' }}
+        </h3>
+      </div>
+
+      <div class="panel-body">
+        {{ note.text|truncatewords:3 }}
+      </div>
+
+    </div><!-- panel -->
+
+  {% empty %}
+    there nothing.
+  {% endfor %}
+
+{% endblock content %}
+

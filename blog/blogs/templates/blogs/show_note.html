@@ -1,0 +1,16 @@
+{% extends 'blogs/base.html' %}
+
+{% block header %}
+  <h2>
+    {{ note.title }}
+    <small>
+      <a href="{% url 'blogs:edit_note' note.id %}"><button>edit it</button></a>
+    </small>
+  </h2>
+{% endblock header %}
+
+{% block content %}
+
+  <h3>{{ note.text|linebreaks }}</h3>
+
+{% endblock content %}

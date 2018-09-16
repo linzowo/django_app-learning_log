@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\learning_log",
+    "\\learning_logs",
+    "\\learning_logs\\templates",
+    "\\learning_logs\\templates\\learning_logs",
+    "\\pizzeria",
+    "\\pizzeria\\pizzas",
+    "\\pizzeria\\pizzas\\templates",
+    "\\pizzeria\\pizzas\\templates\\pizzas",
+    "\\pizzeria\\pizzeria"
+  ],
+  "SelectedNode": "\\learning_logs\\templates\\learning_logs\\new_topic.html",
+  "PreviewInSolutionExplorer": false
+}
