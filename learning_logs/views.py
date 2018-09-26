@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect,Http404
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -29,7 +29,7 @@ def topics(request):
 @login_required
 def topic(request,topic_id):
     """显示单个主题及其所有条目"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic,id=topic_id)
     #confirm that the subject of the request belongs to the current user
     check_topic_owner(topic,request)
 
