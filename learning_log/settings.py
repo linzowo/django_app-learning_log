@@ -151,6 +151,8 @@ if os.getcwd() == '/app':
     #支持所有主机头
     ALLOWED_HOSTS = ['*']
 
+    DEBUG = False
+
     #静态资产配置
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'staticfiles'
