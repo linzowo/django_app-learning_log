@@ -28,7 +28,7 @@ SECRET_KEY = 'v7%520sj3d46m@d&+xtl%&ye^2i&@)er_!*f+gy2)kj(v13^cv'
 DEBUG = False
 
 #only allow heroku host this project
-ALLOWED_HOSTS = ['linzowo-ll.herokuapp.com']
+ALLOWED_HOSTS = []
 #ALLOWED_HOSTS = ['127.0.0.1']
 
 
