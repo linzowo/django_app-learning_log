@@ -25,7 +25,7 @@ SECRET_KEY = 'v7%520sj3d46m@d&+xtl%&ye^2i&@)er_!*f+gy2)kj(v13^cv'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #only allow heroku host this project
 ALLOWED_HOSTS = []
