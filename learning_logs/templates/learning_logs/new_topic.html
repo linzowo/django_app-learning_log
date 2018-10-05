@@ -11,6 +11,17 @@
     {% csrf_token %}
     {% bootstrap_form form %}
 
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionRadios" id="public" value="False" checked>
+        Not public
+      </label>
+      <label>
+        <input type="radio" name="optionRadios" id='public' value="True" checked>
+        Public
+      </label>
+    </div>
+
     {% buttons %}
       <button name="submit" class="btn btn-primary">add topic</button>
     {% endbuttons %}
