@@ -58,7 +58,7 @@ def new_topic(request):
 @login_required
 def new_entry(request,topic_id):
     """在用户添加的特定主题下添加内容"""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic,id=topic_id)
 
     if request.method != 'POST':
         #如果用户没有提交数据
@@ -78,7 +78,7 @@ def new_entry(request,topic_id):
 @login_required
 def edit_entry(request,entry_id):
     """编辑现有的条目"""
-    entry = Entry.objects.get(id=entry_id)
+    entry = get_object_or_404(Entry,id=entry_id)
     topic = entry.topic
     check_topic_owner(topic,request)
 
