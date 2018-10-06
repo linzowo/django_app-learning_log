@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.db.models import Q
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponseRedirect,Http404
 from django.core.urlresolvers import reverse
@@ -19,10 +20,15 @@ def index(request):  #问题：这个函数中的参数从什么地方来
     """学习笔记的主页"""
     return render(request,'learning_logs/index.html')
 
-@login_required
+
 def topics(request):
-    """展示所有主题"""
-    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
+    """当用户处于登陆状态时显示自己的私有主题和所以公开主题
+    当用户未登录时显示所有公开主题"""
+    if request.user.is_authenticated():
+        topics = Topic.objects.filter(Q(owner=request.user) | Q(public=True)).order_by('date_added')
+    else:
+        topics = Topic.objects.filter(public=True).order_by('date_added')
+
     context = {'topics':topics}
     return render(request,'learning_logs/topics.html',context)
 
