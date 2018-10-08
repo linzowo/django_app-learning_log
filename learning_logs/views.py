@@ -49,6 +49,7 @@ def new_topic(request):
     if request.method != 'POST':
         #没有提交数据，创建一个新的表格
         form = TopicForm()
+        
     else:
         #post提交的数据，对数据进行处理
         form = TopicForm(request.POST)

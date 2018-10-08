@@ -11,13 +11,13 @@
     {% csrf_token %}
     {% bootstrap_form form %}
 
-    <div class="radio">
+    <div class="btn-group" data-toggle="buttons">
       <label>
-        <input type="radio" name="public" value=False checked>
+        <input type="radio" name="public" id="public_false" value="False" checked>
         Not public
       </label>
       <label>
-        <input type="radio" name="public" value=True>
+        <input type="radio" name="public" id="public_true" value="True">
         Public
       </label>
     </div>

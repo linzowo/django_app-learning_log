@@ -5,8 +5,9 @@ from .models import Topic,Entry
 class TopicForm(forms.ModelForm):
     class Meta:
         model = Topic
-        fields = ['text']
+        fields = ['text','public']
         labels = {'text':''}
+        widgets = {'public':forms.HiddenInput()}
 
 class EntryForm(forms.ModelForm):
     class Meta:
