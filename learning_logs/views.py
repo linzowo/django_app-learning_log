@@ -32,16 +32,21 @@ def topics(request):
     context = {'topics':topics}
     return render(request,'learning_logs/topics.html',context)
 
-@login_required
 def topic(request,topic_id):
     """显示单个主题及其所有条目"""
     topic = get_object_or_404(Topic,id=topic_id)
-    #confirm that the subject of the request belongs to the current user
-    check_topic_owner(topic,request)
+
+    if request.user.is_authenticated():
+        #confirm that the subject of the request belongs to the current user
+        check_topic_owner(topic,request)
+    else:
+        if topic.public != True:
+            raise Http404
 
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic':topic,'entries':entries}
     return render(request,'learning_logs/topic.html',context)
+
 
 @login_required
 def new_topic(request):
@@ -49,7 +54,7 @@ def new_topic(request):
     if request.method != 'POST':
         #没有提交数据，创建一个新的表格
         form = TopicForm()
-        
+
     else:
         #post提交的数据，对数据进行处理
         form = TopicForm(request.POST)
